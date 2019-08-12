@@ -103,6 +103,14 @@ export function evalExtendscript(script: string): Promise<any> {
   });
 }
 
+export function cepRequire(forModule: string) {
+  try {
+    return window.cep_node.require(forModule);
+  } catch (e) {
+    return require(forModule);
+  }
+}
+
 export interface ContextMenuItem {
   id?: string;
   label?: string;
